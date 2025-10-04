@@ -83,3 +83,21 @@ function copyLink() {
     alert("Link copied to clipboard!");
   });
 }
+function showAdminPanel() {
+  document.getElementById("admin").style.display = "block";
+}
+
+function submitAdminContent() {
+  const title = document.getElementById("adminTitle").value.trim();
+  const content = document.getElementById("adminContent").value.trim();
+
+  if (!title || !content) {
+    alert("Please fill in both fields.");
+    return;
+  }
+
+  savePoem(title, content); // Firebase function
+  alert("Content saved!");
+  document.getElementById("adminTitle").value = "";
+  document.getElementById("adminContent").value = "";
+}

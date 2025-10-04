@@ -57,4 +57,29 @@ function toggleReadMore(id) {
 function copyLink() {
   navigator.clipboard.writeText("https://hassanjatoi.github.io/hassanali/");
   alert("✅ Link copied to clipboard!");
+
+}
+function toggleLike(button) {
+  button.classList.toggle("bg-yellow-700");
+  const title = button.closest(".card").querySelector("h3").textContent;
+  saveLike(title); // Calls the global function from Firebase module
+}
+
+function toggleReadMore(id) {
+  const element = document.getElementById(id);
+  const btn = document.getElementById(id + "-btn");
+  if (element.classList.contains("line-clamp-2")) {
+    element.classList.remove("line-clamp-2");
+    btn.innerText = "🔼 Read Less";
+  } else {
+    element.classList.add("line-clamp-2");
+    btn.innerText = "🔽 Read More";
+  }
+}
+
+function copyLink() {
+  const url = "https://hassanjatoi.github.io/hassanali/";
+  navigator.clipboard.writeText(url).then(() => {
+    alert("Link copied to clipboard!");
+  });
 }

@@ -70,27 +70,33 @@ function copyLink() {
   });
 }
 
-// 🛠️ Show admin panel
-function showAdminPanel() {
-  document.getElementById("admin").style.display = "block";
-}
-
 // 📝 Submit poetry to Firebase
-function submitAdminContent() {
-  const title = document.getElementById("adminTitle").value.trim();
-  const content = document.getElementById("adminContent").value.trim();
+function submitPoem() {
+  const title = document.getElementById("poemTitle").value.trim();
+  const content = document.getElementById("poemContent").value.trim();
+  const status = document.getElementById("status");
 
   if (!title || !content) {
-    alert("Please fill in both fields.");
+    status.textContent = "Please fill in both fields.";
+    status.className = "text-red-600";
     return;
   }
 
   if (typeof savePoem === "function") {
-    savePoem(title, content);
-    alert("✅ Poetry published successfully!");
-    document.getElementById("adminTitle").value = "";
-    document.getElementById("adminContent").value = "";
+    savePoem(title, content)
+      .then(() => {
+        status.textContent = "✅ Poem published successfully!";
+        status.className = "text-green-600";
+        document.getElementById("poemTitle").value = "";
+        document.getElementById("poemContent").value = "";
+      })
+      .catch((e) => {
+        status.textContent = "❌ Error saving poem.";
+        status.className = "text-red-600";
+        console.error("Error:", e);
+      });
   } else {
-    alert("❌ Firebase not connected.");
+    status.textContent = "❌ Firebase not connected.";
+    status.className = "text-red-600";
   }
 }

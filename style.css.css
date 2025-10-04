@@ -1,4 +1,4 @@
-/* Base styles */
+/* 🌐 Base Styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -8,12 +8,12 @@ body {
   transition: background 1s ease;
 }
 
-/* Hero and cards will animate */
+/* 🌈 Animated Backgrounds */
 .hero, .card {
   transition: background 1s ease;
 }
 
-/* Navbar */
+/* 🧭 Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -49,7 +49,7 @@ body {
   text-decoration: none;
 }
 
-/* Hero Section */
+/* 🖼️ Hero Section */
 .hero {
   text-align: center;
   padding: 40px 20px;
@@ -61,7 +61,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* Sections */
+/* 📦 Sections */
 .section {
   padding: 30px;
   margin: 20px;
@@ -69,15 +69,16 @@ body {
   background: #f9f9f9;
 }
 
-/* Poetry/Story/Novel Cards */
+/* 📜 Cards */
 .card {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
 }
 
-/* Buttons */
+/* 🔘 Buttons */
 button {
   margin-right: 10px;
   padding: 5px 10px;
@@ -86,6 +87,7 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
@@ -96,12 +98,12 @@ button:hover {
   background: #ef4444 !important;
 }
 
-/* Read More toggle */
+/* 🔽 Read More Toggle */
 .expanded {
   max-height: none !important;
 }
 
-/* Share Buttons */
+/* 📢 Share Buttons */
 .share-buttons {
   text-align: center;
   padding: 20px;
@@ -112,4 +114,35 @@ button:hover {
   margin: 0 10px;
   color: #333;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.share-buttons i:hover {
+  color: #1d4ed8;
+}
+
+/* 📝 Admin Panel */
+#admin {
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+#admin input,
+#admin textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#admin button {
+  background: #2563eb;
+}
+
+#admin button:hover {
+  background: #1e40af;
 }

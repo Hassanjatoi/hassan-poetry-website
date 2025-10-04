@@ -3,27 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hassan Jatoi – Live Poetry Publisher</title>
+  <title>Hassan Jatoi – Poetry Publisher</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="transition-all duration-1000">
 
-  <!-- Header -->
-  <header class="bg-white shadow p-4 text-center">
-    <h1 class="text-3xl font-bold">🖋️ Hassan Jatoi – Publish Your Poetry</h1>
-    <p class="text-gray-600">Write and share your poetry live</p>
-  </header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="https://i.ibb.co/prQPXHGL/grok-image-uayyhf.jpg" alt="Logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#poetry">Poetry</a></li>
+      <li><a href="#publish">Publish</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#hire">Hire Me</a></li>
+    </ul>
+    <div class="buttons">
+      <a href="https://wa.me/447845490480" target="_blank">WhatsApp</a>
+      <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank">Fiverr</a>
+    </div>
+  </nav>
 
-  <!-- Poetry Form -->
-  <main class="max-w-xl mx-auto mt-10 p-6 bg-white rounded shadow">
-    <h2 class="text-xl font-semibold mb-4">✍️ Write Your Poem</h2>
-    <input type="text" id="poemTitle" placeholder="Poem Title" class="w-full p-2 mb-2 border rounded" />
-    <textarea id="poemContent" placeholder="Your poem..." rows="6" class="w-full p-2 border rounded mb-3"></textarea>
-    <button onclick="submitPoem()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">📤 Publish</button>
-    <p id="status" class="mt-4 text-green-600 font-medium"></p>
-  </main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="https://i.ibb.co/x8g8PhcY/file-00000000400061fdb0c970b54d17f416-1.png" alt="Hassan Jatoi" class="profile" />
+    <h1 class="text-3xl font-bold mt-4">Welcome to My World of Words</h1>
+    <p class="text-lg text-gray-600">Poetry | Stories | Novels</p>
+  </section>
 
-  <!-- Firebase SDKs + Publishing Logic -->
+  <!-- Poetry Section -->
+  <section id="poetry" class="section">
+    <h2 class="text-2xl font-bold mb-4">📜 Poetry</h2>
+    <div class="card">
+      <h3 class="text-xl font-semibold">Whispers of the Wind</h3>
+      <p id="poem1">The wind speaks softly to the soul, carrying dreams untold...</p>
+      <button onclick="toggleLike(this)">❤️ Like</button>
+      <button id="poem1-btn" onclick="toggleReadMore('poem1')">🔽 Read More</button>
+    </div>
+  </section>
+
+  <!-- Publish Section -->
+  <section id="publish" class="section">
+    <h2 class="text-2xl font-bold mb-4">📝 Write & Publish Poetry</h2>
+    <div class="card">
+      <input type="text" id="poemTitle" placeholder="Poem Title" />
+      <textarea id="poemContent" placeholder="Write your poem here..." rows="6"></textarea>
+      <button onclick="submitPoem()">📤 Publish</button>
+      <p id="status"></p>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="section">
+    <h2 class="text-2xl font-bold mb-2">👤 About Me</h2>
+    <p>I’m Hassan Jatoi, a passionate poet and storyteller based in London. I write poetry, short stories, and novels that explore emotion, imagination, and identity.</p>
+  </section>
+
+  <!-- Hire Me -->
+  <section id="hire" class="section">
+    <h2 class="text-2xl font-bold mb-2">🚀 Hire Me</h2>
+    <p>Need custom poetry, stories, or novel writing? Let’s work together!</p>
+    <a href="https://wa.me/447845490480" target="_blank">💬 Chat on WhatsApp</a>
+    <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank">🎯 Order on Fiverr</a>
+  </section>
+
+  <!-- Share Buttons -->
+  <div class="share-buttons">
+    <h3 class="text-xl font-semibold mb-2">📢 Share my Website</h3>
+    <i class="fab fa-facebook-f" onclick="copyLink()"></i>
+    <i class="fab fa-twitter" onclick="copyLink()"></i>
+    <i class="fab fa-linkedin-in" onclick="copyLink()"></i>
+    <i class="fab fa-whatsapp" onclick="copyLink()"></i>
+    <i class="fas fa-copy" onclick="copyLink()"></i>
+  </div>
+
+  <!-- Firebase SDKs -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
@@ -41,6 +100,14 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    window.savePoem = async function (title, content) {
+      await addDoc(collection(db, "poems"), {
+        title,
+        content,
+        timestamp: new Date()
+      });
+    };
+
     window.submitPoem = async function () {
       const title = document.getElementById("poemTitle").value.trim();
       const content = document.getElementById("poemContent").value.trim();
@@ -48,24 +115,20 @@
 
       if (!title || !content) {
         status.textContent = "Please fill in both fields.";
-        status.classList.replace("text-green-600", "text-red-600");
+        status.className = "text-red-600";
         return;
       }
 
       try {
-        await addDoc(collection(db, "poems"), {
-          title: title,
-          content: content,
-          timestamp: new Date()
-        });
+        await savePoem(title, content);
         status.textContent = "✅ Poem published successfully!";
-        status.classList.replace("text-red-600", "text-green-600");
+        status.className = "text-green-600";
         document.getElementById("poemTitle").value = "";
         document.getElementById("poemContent").value = "";
       } catch (e) {
         status.textContent = "❌ Error saving poem.";
-        status.classList.replace("text-green-600", "text-red-600");
-        console.error("Error:", e);
+        status.className = "text-red-600";
+        console.error(e);
       }
     };
   </script>

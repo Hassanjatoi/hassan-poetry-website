@@ -104,4 +104,40 @@
   </div>
 
 </body>
+
 </html>
+<!-- Firebase SDKs -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyBEgv7Ob8U44sOKpV2j-2J1-YH2frnp0mg",
+    authDomain: "hassan-poetry-website.firebaseapp.com",
+    projectId: "hassan-poetry-website",
+    storageBucket: "hassan-poetry-website.firebasestorage.app",
+    messagingSenderId: "806422978699",
+    appId: "1:806422978699:web:7f51db8d02f591a24f748e",
+    measurementId: "G-FXLB2Z20JN"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Save like to Firestore
+  window.saveLike = async function (title) {
+    try {
+      await addDoc(collection(db, "likes"), {
+        title: title,
+        timestamp: new Date()
+      });
+      console.log("Like saved for:", title);
+    } catch (e) {
+      console.error("Error saving like:", e);
+    }
+  };
+</script>

@@ -1,4 +1,4 @@
-// Gradient backgrounds for hero and cards
+// 🌈 Gradient backgrounds for hero and cards
 const heroGradients = [
   "linear-gradient(to right, #ffecd2, #fcb69f)",
   "linear-gradient(to right, #c2e9fb, #a1c4fd)",
@@ -39,32 +39,17 @@ setInterval(() => {
   changeCardBackgrounds();
 }, 2000);
 
-// Like button toggle
-function toggleLike(btn) {
-  btn.classList.toggle("liked");
-  btn.innerText = btn.classList.contains("liked") ? "💖 Liked" : "❤️ Like";
-}
-
-// Read More toggle
-function toggleReadMore(id) {
-  const content = document.getElementById(id);
-  const btn = document.getElementById(id + "-btn");
-  content.classList.toggle("expanded");
-  btn.innerText = content.classList.contains("expanded") ? "🔼 Read Less" : "🔽 Read More";
-}
-
-// Copy link to clipboard
-function copyLink() {
-  navigator.clipboard.writeText("https://hassanjatoi.github.io/hassanali/");
-  alert("✅ Link copied to clipboard!");
-
-}
+// ❤️ Like button toggle and Firebase save
 function toggleLike(button) {
   button.classList.toggle("bg-yellow-700");
+  button.innerText = button.classList.contains("bg-yellow-700") ? "💖 Liked" : "❤️ Like";
   const title = button.closest(".card").querySelector("h3").textContent;
-  saveLike(title); // Calls the global function from Firebase module
+  if (typeof saveLike === "function") {
+    saveLike(title);
+  }
 }
 
+// 🔽 Read More toggle
 function toggleReadMore(id) {
   const element = document.getElementById(id);
   const btn = document.getElementById(id + "-btn");
@@ -77,16 +62,20 @@ function toggleReadMore(id) {
   }
 }
 
+// 📋 Copy link to clipboard
 function copyLink() {
   const url = "https://hassanjatoi.github.io/hassanali/";
   navigator.clipboard.writeText(url).then(() => {
-    alert("Link copied to clipboard!");
+    alert("✅ Link copied to clipboard!");
   });
 }
+
+// 🛠️ Show admin panel
 function showAdminPanel() {
   document.getElementById("admin").style.display = "block";
 }
 
+// 📝 Submit poetry to Firebase
 function submitAdminContent() {
   const title = document.getElementById("adminTitle").value.trim();
   const content = document.getElementById("adminContent").value.trim();
@@ -96,8 +85,12 @@ function submitAdminContent() {
     return;
   }
 
-  savePoem(title, content); // Firebase function
-  alert("Content saved!");
-  document.getElementById("adminTitle").value = "";
-  document.getElementById("adminContent").value = "";
+  if (typeof savePoem === "function") {
+    savePoem(title, content);
+    alert("✅ Poetry published successfully!");
+    document.getElementById("adminTitle").value = "";
+    document.getElementById("adminContent").value = "";
+  } else {
+    alert("❌ Firebase not connected.");
+  }
 }

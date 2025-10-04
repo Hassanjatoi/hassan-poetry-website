@@ -145,3 +145,10 @@
 <script type="module">
   // Firebase imports and setup (same as you've written)
 </script>
+<!-- Admin Panel (Hidden by default) -->
+<section id="admin" style="display: none;" class="px-6 py-8 bg-gray-100">
+  <h2 class="text-2xl font-bold mb-4">✍️ Write New Content</h2>
+  <input type="text" id="adminTitle" placeholder="Title" class="w-full p-2 mb-2 border rounded" />
+  <textarea id="adminContent" placeholder="Write here..." rows="6" class="w-full p-2 mb-2 border rounded"></textarea>
+  <button onclick="submitAdminContent()" class="bg-blue-600 text-white px-4 py-2 rounded">📤 Submit</button>
+</section>

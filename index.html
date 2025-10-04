@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hassan Jatoi – Poetry & Stories</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="transition-all duration-1000">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center bg-white shadow-md px-6 py-4">
+    <div class="flex items-center space-x-2">
+      <img src="https://i.ibb.co/prQPXHGL/grok-image-uayyhf.jpg" alt="Logo" class="w-10 h-10 rounded-full" />
+      <span class="text-xl font-bold text-gray-800">Hassan Jatoi</span>
+    </div>
+    <ul class="flex space-x-4 text-gray-700 font-medium">
+      <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+      <li><a href="#poetry" class="hover:text-blue-600">Poetry</a></li>
+      <li><a href="#stories" class="hover:text-blue-600">Stories</a></li>
+      <li><a href="#novels" class="hover:text-blue-600">Novels</a></li>
+      <li><a href="#about" class="hover:text-blue-600">About</a></li>
+      <li><a href="#hire" class="hover:text-blue-600">Hire Me</a></li>
+    </ul>
+    <div class="flex space-x-2">
+      <a href="https://wa.me/447845490480" target="_blank" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">WhatsApp</a>
+      <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700">Fiverr</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero text-center py-10">
+    <img src="https://i.ibb.co/x8g8PhcY/file-00000000400061fdb0c970b54d17f416-1.png" alt="Hassan Jatoi" class="w-24 h-24 rounded-full mx-auto shadow-md" />
+    <h1 class="text-3xl font-bold mt-4">Welcome to My World of Words</h1>
+    <p class="text-lg text-gray-600">Poetry | Stories | Novels</p>
+  </section>
+
+  <!-- Poetry Section -->
+  <section id="poetry" class="px-6 py-8">
+    <h2 class="text-2xl font-bold mb-4">📜 Poetry</h2>
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">Whispers of the Wind</h3>
+      <p id="poem1" class="mt-2">The wind speaks softly to the soul, carrying dreams untold...</p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem1-btn" onclick="toggleReadMore('poem1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories Section -->
+  <section id="stories" class="px-6 py-8">
+    <h2 class="text-2xl font-bold mb-4">📖 Stories</h2>
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">The Silent Room</h3>
+      <p id="story1" class="mt-2">She entered the room where silence had a voice...</p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="story1-btn" onclick="toggleReadMore('story1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Novels Section -->
+  <section id="novels" class="px-6 py-8">
+    <h2 class="text-2xl font-bold mb-4">📚 Novels</h2>
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">Echoes of Eternity</h3>
+      <p id="novel1" class="mt-2">A tale of love, loss, and timeless longing...</p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="novel1-btn" onclick="toggleReadMore('novel1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="px-6 py-8 bg-white">
+    <h2 class="text-2xl font-bold mb-2">👤 About Me</h2>
+    <p class="text-gray-700">I’m Hassan Jatoi, a passionate poet and storyteller based in London. I write poetry, short stories, and novels that explore emotion, imagination, and identity.</p>
+  </section>
+
+  <!-- Hire Me -->
+  <section id="hire" class="px-6 py-8 bg-white">
+    <h2 class="text-2xl font-bold mb-2">🚀 Hire Me</h2>
+    <p class="text-gray-700 mb-4">Need custom poetry, stories, or novel writing? Let’s work together!</p>
+    <a href="https://wa.me/447845490480" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded mr-2">💬 Chat on WhatsApp</a>
+    <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded">🎯 Order on Fiverr</a>
+  </section>
+
+  <!-- Share Buttons -->
+  <div class="text-center py-6">
+    <h3 class="text-xl font-semibold mb-2">📢 Share my Website</h3>
+    <div class="space-x-4 text-2xl text-gray-600">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/intent/tweet?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/shareArticle?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://api.whatsapp.com/send?text=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <button onclick="copyLink()" class="text-blue-500"><i class="fas fa-copy"></i></button>
+    </div>
+  </div>
+
+</body>
+</html>

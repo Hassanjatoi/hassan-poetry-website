@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -7,10 +8,12 @@ body {
   transition: background 1s ease;
 }
 
+/* Hero and cards will animate */
 .hero, .card {
   transition: background 1s ease;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -46,6 +49,7 @@ body {
   text-decoration: none;
 }
 
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 40px 20px;
@@ -57,6 +61,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+/* Sections */
 .section {
   padding: 30px;
   margin: 20px;
@@ -64,8 +69,47 @@ body {
   background: #f9f9f9;
 }
 
+/* Poetry/Story/Novel Cards */
 .card {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: #f59e0b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d97706;
+}
+
+.liked {
+  background: #ef4444 !important;
+}
+
+/* Read More toggle */
+.expanded {
+  max-height: none !important;
+}
+
+/* Share Buttons */
+.share-buttons {
+  text-align: center;
+  padding: 20px;
+}
+
+.share-buttons i {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #333;
+  cursor: pointer;
+}

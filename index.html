@@ -3,152 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hassan Jatoi – Poetry & Stories</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <title>Hassan Jatoi – Live Poetry Publisher</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="transition-all duration-1000">
+<body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center bg-white shadow-md px-6 py-4">
-    <div class="flex items-center space-x-2">
-      <img src="https://i.ibb.co/prQPXHGL/grok-image-uayyhf.jpg" alt="Logo" class="w-10 h-10 rounded-full" />
-      <span class="text-xl font-bold text-gray-800">Hassan Jatoi</span>
-    </div>
-    <ul class="flex space-x-4 text-gray-700 font-medium">
-      <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-      <li><a href="#poetry" class="hover:text-blue-600">Poetry</a></li>
-      <li><a href="#stories" class="hover:text-blue-600">Stories</a></li>
-      <li><a href="#novels" class="hover:text-blue-600">Novels</a></li>
-      <li><a href="#about" class="hover:text-blue-600">About</a></li>
-      <li><a href="#hire" class="hover:text-blue-600">Hire Me</a></li>
-    </ul>
-    <div class="flex space-x-2">
-      <a href="https://wa.me/447845490480" target="_blank" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">WhatsApp</a>
-      <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700">Fiverr</a>
-    </div>
-  </nav>
+  <!-- Header -->
+  <header class="bg-white shadow p-4 text-center">
+    <h1 class="text-3xl font-bold">🖋️ Hassan Jatoi – Publish Your Poetry</h1>
+    <p class="text-gray-600">Write and share your poetry live</p>
+  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero text-center py-10">
-    <img src="https://i.ibb.co/x8g8PhcY/file-00000000400061fdb0c970b54d17f416-1.png" alt="Hassan Jatoi" class="w-24 h-24 rounded-full mx-auto shadow-md" />
-    <h1 class="text-3xl font-bold mt-4">Welcome to My World of Words</h1>
-    <p class="text-lg text-gray-600">Poetry | Stories | Novels</p>
-  </section>
+  <!-- Poetry Form -->
+  <main class="max-w-xl mx-auto mt-10 p-6 bg-white rounded shadow">
+    <h2 class="text-xl font-semibold mb-4">✍️ Write Your Poem</h2>
+    <input type="text" id="poemTitle" placeholder="Poem Title" class="w-full p-2 mb-2 border rounded" />
+    <textarea id="poemContent" placeholder="Your poem..." rows="6" class="w-full p-2 border rounded mb-3"></textarea>
+    <button onclick="submitPoem()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">📤 Publish</button>
+    <p id="status" class="mt-4 text-green-600 font-medium"></p>
+  </main>
 
-  <!-- Poetry Section -->
-  <section id="poetry" class="px-6 py-8">
-    <h2 class="text-2xl font-bold mb-4">📜 Poetry</h2>
-    <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">Whispers of the Wind</h3>
-      <p id="poem1" class="mt-2">The wind speaks softly to the soul, carrying dreams untold...</p>
-      <div class="mt-2 space-x-2">
-        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
-        <button id="poem1-btn" onclick="toggleReadMore('poem1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
-      </div>
-    </div>
-  </section>
+  <!-- Firebase SDKs + Publishing Logic -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-  <!-- Stories Section -->
-  <section id="stories" class="px-6 py-8">
-    <h2 class="text-2xl font-bold mb-4">📖 Stories</h2>
-    <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">The Silent Room</h3>
-      <p id="story1" class="mt-2">She entered the room where silence had a voice...</p>
-      <div class="mt-2 space-x-2">
-        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
-        <button id="story1-btn" onclick="toggleReadMore('story1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
-      </div>
-    </div>
-  </section>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBEgv7Ob8U44sOKpV2j-2J1-YH2frnp0mg",
+      authDomain: "hassan-poetry-website.firebaseapp.com",
+      projectId: "hassan-poetry-website",
+      storageBucket: "hassan-poetry-website.firebasestorage.app",
+      messagingSenderId: "806422978699",
+      appId: "1:806422978699:web:7f51db8d02f591a24f748e",
+      measurementId: "G-FXLB2Z20JN"
+    };
 
-  <!-- Novels Section -->
-  <section id="novels" class="px-6 py-8">
-    <h2 class="text-2xl font-bold mb-4">📚 Novels</h2>
-    <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">Echoes of Eternity</h3>
-      <p id="novel1" class="mt-2">A tale of love, loss, and timeless longing...</p>
-      <div class="mt-2 space-x-2">
-        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
-        <button id="novel1-btn" onclick="toggleReadMore('novel1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
-      </div>
-    </div>
-  </section>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-  <!-- About Me -->
-  <section id="about" class="px-6 py-8 bg-white">
-    <h2 class="text-2xl font-bold mb-2">👤 About Me</h2>
-    <p class="text-gray-700">I’m Hassan Jatoi, a passionate poet and storyteller based in London. I write poetry, short stories, and novels that explore emotion, imagination, and identity.</p>
-  </section>
+    window.submitPoem = async function () {
+      const title = document.getElementById("poemTitle").value.trim();
+      const content = document.getElementById("poemContent").value.trim();
+      const status = document.getElementById("status");
 
-  <!-- Hire Me -->
-  <section id="hire" class="px-6 py-8 bg-white">
-    <h2 class="text-2xl font-bold mb-2">🚀 Hire Me</h2>
-    <p class="text-gray-700 mb-4">Need custom poetry, stories, or novel writing? Let’s work together!</p>
-    <a href="https://wa.me/447845490480" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded mr-2">💬 Chat on WhatsApp</a>
-    <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded">🎯 Order on Fiverr</a>
-  </section>
+      if (!title || !content) {
+        status.textContent = "Please fill in both fields.";
+        status.classList.replace("text-green-600", "text-red-600");
+        return;
+      }
 
-  <!-- Share Buttons -->
-  <div class="text-center py-6">
-    <h3 class="text-xl font-semibold mb-2">📢 Share my Website</h3>
-    <div class="space-x-4 text-2xl text-gray-600">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/intent/tweet?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/shareArticle?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://api.whatsapp.com/send?text=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <button onclick="copyLink()" class="text-blue-500"><i class="fas fa-copy"></i></button>
-    </div>
-  </div>
+      try {
+        await addDoc(collection(db, "poems"), {
+          title: title,
+          content: content,
+          timestamp: new Date()
+        });
+        status.textContent = "✅ Poem published successfully!";
+        status.classList.replace("text-red-600", "text-green-600");
+        document.getElementById("poemTitle").value = "";
+        document.getElementById("poemContent").value = "";
+      } catch (e) {
+        status.textContent = "❌ Error saving poem.";
+        status.classList.replace("text-green-600", "text-red-600");
+        console.error("Error:", e);
+      }
+    };
+  </script>
 
 </body>
-
 </html>
-<!-- Firebase SDKs -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyBEgv7Ob8U44sOKpV2j-2J1-YH2frnp0mg",
-    authDomain: "hassan-poetry-website.firebaseapp.com",
-    projectId: "hassan-poetry-website",
-    storageBucket: "hassan-poetry-website.firebasestorage.app",
-    messagingSenderId: "806422978699",
-    appId: "1:806422978699:web:7f51db8d02f591a24f748e",
-    measurementId: "G-FXLB2Z20JN"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app);
-
-  // Save like to Firestore
-  window.saveLike = async function (title) {
-    try {
-      await addDoc(collection(db, "likes"), {
-        title: title,
-        timestamp: new Date()
-      });
-      console.log("Like saved for:", title);
-    } catch (e) {
-      console.error("Error saving like:", e);
-    }
-  };
-</script>
-<!-- Place this before </body> -->
-<script type="module">
-  // Firebase imports and setup (same as you've written)
-</script>
-<!-- Admin Panel (Hidden by default) -->
-<section id="admin" style="display: none;" class="px-6 py-8 bg-gray-100">
-  <h2 class="text-2xl font-bold mb-4">✍️ Write New Content</h2>
-  <input type="text" id="adminTitle" placeholder="Title" class="w-full p-2 mb-2 border rounded" />
-  <textarea id="adminContent" placeholder="Write here..." rows="6" class="w-full p-2 mb-2 border rounded"></textarea>
-  <button onclick="submitAdminContent()" class="bg-blue-600 text-white px-4 py-2 rounded">📤 Submit</button>
-</section>

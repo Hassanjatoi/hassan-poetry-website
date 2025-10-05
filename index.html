@@ -30,8 +30,7 @@
       <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700">Fiverr</a>
     </div>
   </nav>
-
-  <!-- Hero Section -->
+    <!-- Hero Section -->
   <section id="home" class="hero text-center py-10">
     <img src="https://i.ibb.co/x8g8PhcY/file-00000000400061fdb0c970b54d17f416-1.png" alt="Hassan Jatoi" class="w-24 h-24 rounded-full mx-auto shadow-md" />
     <h1 class="text-3xl font-bold mt-4">Welcome to My World of Words</h1>
@@ -41,67 +40,255 @@
   <!-- Poetry Section -->
   <section id="poetry" class="px-6 py-8">
     <h2 class="text-2xl font-bold mb-4">📜 Poetry</h2>
+
+    <!-- Poem 1: Tears of the Moon -->
     <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">Whispers of the Wind</h3>
-      <p id="poem1" class="mt-2">The wind speaks softly to the soul, carrying dreams untold...</p>
+      <h3 class="text-xl font-semibold">🌙 Tears of the Moon</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem1" class="mt-2">
+        My heart, a broken violin of time,<br />
+        Plays love’s last tune in rhyme sublime.<br /><br />
+        The moon weeps soft on my window’s glass,<br />
+        Reciting verses of what did pass.<br /><br />
+        Her voice, once sunlight, now fades in gloom,<br />
+        Leaving perfume in sorrow’s room.<br /><br />
+        I breathe her name in the wind’s cold sigh,<br />
+        And stars reply with a mournful cry.<br /><br />
+        Love died, yet its ghost forever croons —<br />
+        In my chest, the Tears of the Moon.
+      </p>
       <div class="mt-2 space-x-2">
         <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
         <button id="poem1-btn" onclick="toggleReadMore('poem1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
       </div>
     </div>
-  </section>
-
-  <!-- Stories Section -->
-  <section id="stories" class="px-6 py-8">
-    <h2 class="text-2xl font-bold mb-4">📖 Stories</h2>
+        <!-- Poem 2: The Grave of Roses -->
     <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">The Silent Room</h3>
-      <p id="story1" class="mt-2">She entered the room where silence had a voice...</p>
+      <h3 class="text-xl font-semibold">🌹 The Grave of Roses</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi — In Shakespeare’s Tone</p>
+      <p id="poem2" class="mt-2">
+        Beneath my tears, the roses sleep,<br />
+        Their fragrance buried, memories deep.<br /><br />
+        Each petal sighs with silent pain,<br />
+        For love once lost shall bloom again.<br /><br />
+        Thy name still burns upon the breeze,<br />
+        Like whispered prayers through dying trees.<br /><br />
+        The soil drinks grief where passion grows,<br />
+        And thorns adorn the grave of rose.<br /><br />
+        So let the night in mourning close —<br />
+        My heart remains The Grave of Roses.
+      </p>
       <div class="mt-2 space-x-2">
         <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
-        <button id="story1-btn" onclick="toggleReadMore('story1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+        <button id="poem2-btn" onclick="toggleReadMore('poem2')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
       </div>
     </div>
-  </section>
 
-  <!-- Novels Section -->
-  <section id="novels" class="px-6 py-8">
-    <h2 class="text-2xl font-bold mb-4">📚 Novels</h2>
+    <!-- Poem 3: Thy Shadow Lingers -->
     <div class="card p-4 rounded-lg shadow-md mb-4">
-      <h3 class="text-xl font-semibold">Echoes of Eternity</h3>
-      <p id="novel1" class="mt-2">A tale of love, loss, and timeless longing...</p>
+      <h3 class="text-xl font-semibold">🌑 Thy Shadow Lingers</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi — In Shakespeare’s Tone</p>
+      <p id="poem3" class="mt-2">
+        Thy shadow walks where thou art gone,<br />
+        It haunts my nights, it mocks the dawn.<br /><br />
+        Thy whisper drifts through empty air,<br />
+        A ghostly hymn of lost despair.<br /><br />
+        The walls recall thy gentle tread,<br />
+        Though time proclaims our love is dead.<br /><br />
+        Yet every dusk, my spirit sings,<br />
+        For still, Thy Shadow Lingers.
+      </p>
       <div class="mt-2 space-x-2">
         <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
-        <button id="novel1-btn" onclick="toggleReadMore('novel1')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+        <button id="poem3-btn" onclick="toggleReadMore('poem3')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
       </div>
     </div>
-  </section>
 
-  <!-- About Me -->
-  <section id="about" class="px-6 py-8 bg-white">
-    <h2 class="text-2xl font-bold mb-2">👤 About Me</h2>
-    <p class="text-gray-700">I’m Hassan Jatoi, a passionate poet and storyteller based in London. I write poetry, short stories, and novels that explore emotion, imagination, and identity.</p>
-  </section>
-
-  <!-- Hire Me -->
-  <section id="hire" class="px-6 py-8 bg-white">
-    <h2 class="text-2xl font-bold mb-2">🚀 Hire Me</h2>
-    <p class="text-gray-700 mb-4">Need custom poetry, stories, or novel writing? Let’s work together!</p>
-    <a href="https://wa.me/447845490480" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded mr-2">💬 Chat on WhatsApp</a>
-    <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded">🎯 Order on Fiverr</a>
-  </section>
-
-  <!-- Share Buttons -->
-  <div class="text-center py-6">
-    <h3 class="text-xl font-semibold mb-2">📢 Share my Website</h3>
-    <div class="space-x-4 text-2xl text-gray-600">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/intent/tweet?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/shareArticle?url=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://api.whatsapp.com/send?text=https://hassanjatoi.github.io/hassanali/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <button onclick="copyLink()" class="text-blue-500"><i class="fas fa-copy"></i></button>
+    <!-- Poem 4: Letters Unsent -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">💌 Letters Unsent</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem4" class="mt-2">
+        The ink of my pain stains the sky,<br />
+        Where dreams of thee in silence die.<br /><br />
+        I wrote thy name with trembling hands,<br />
+        On paper drenched by time’s demands.<br /><br />
+        The words, unspoken, fade away,<br />
+        Like ghosts of love that could not stay.<br /><br />
+        O heart, thou keep’st what fate hath rent —<br />
+        My soul is full of Letters Unsent.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem4-btn" onclick="toggleReadMore('poem4')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
     </div>
-  </div>
 
+    <!-- Poem 5: A Kiss Never Given -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">💋 A Kiss Never Given</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem5" class="mt-2">
+        Thy lips were dawn, yet night they stayed,<br />
+        My heart their promise disobeyed.<br /><br />
+        A single breath, so close, so near,<br />
+        Yet fate stood still — love drowned in fear.<br /><br />
+        The wind did ache to see us part,<br />
+        Two trembling souls, one shattered heart.<br /><br />
+        I spoke no word, nor didst thou move,<br />
+        Silence became the grave of love.<br /><br />
+        The stars beheld our yearning crime,<br />
+        Two hearts that froze in endless time.<br /><br />
+        Thy perfume lingers on my pain,<br />
+        As echoes fall like tender rain.<br /><br />
+        No kiss to bless, no vow to keep,<br />
+        Just dreams that burn when angels sleep.<br /><br />
+        And thus, beneath the weeping heaven,<br />
+        I mourn A Kiss Never Given.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem5-btn" onclick="toggleReadMore('poem5')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+        <!-- Poem 6: The Poet’s Coffin -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">⚰️ The Poet’s Coffin</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi — In Shakespeare’s Tone</p>
+      <p id="poem6" class="mt-2">
+        Each verse I write becomes my wound,<br />
+        In tears and ink, my soul is bound.<br /><br />
+        My quill now weeps, my candle dies,<br />
+        As grief takes flight through midnight skies.<br /><br />
+        The words once kissed by beauty’s grace,<br />
+        Now carve thy name on time’s cold face.<br /><br />
+        The paper shivers, drenched in pain,<br />
+        It feels thy loss in every stain.<br /><br />
+        No muse remains to light my art,<br />
+        Just echoes sob within my heart.<br /><br />
+        Each rhyme, a nail in dreams I built,<br />
+        Each sigh, the shroud of tender guilt.<br /><br />
+        The poet sleeps where sorrows sing,<br />
+        His coffin lined with love’s broken string.<br /><br />
+        Beneath the moon, my fate is written —<br />
+        Here lies The Poet’s Coffin.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem6-btn" onclick="toggleReadMore('poem6')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+
+    <!-- Poem 7: Whispers Beneath the Ruins -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">🕯️ Whispers Beneath the Ruins</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem7" class="mt-2">
+        The moon remembers the ache of our sigh,<br />
+        It weeps for the nights that refused to die.<br /><br />
+        Your name still burns on the edge of pain,<br />
+        A rose in ashes, beneath the rain.<br /><br />
+        Dreams I buried beneath my chest,<br />
+        Still knock at the door of my broken rest.<br /><br />
+        The stars fell quiet when you turned away,<br />
+        And time forgot the words to say.<br /><br />
+        Every breath I take, a wound untold,<br />
+        In silence, my heart turns pale and cold.<br /><br />
+        Your shadow walks through my empty hall,<br />
+        A ghost of love that haunts it all.<br /><br />
+        If love was a sin, then I am its crime,<br />
+        Condemned to remember you through time.<br /><br />
+        I kiss your memory, though it bleeds,<br />
+        For sorrow is the garden where love still feeds.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem7-btn" onclick="toggleReadMore('poem7')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+
+    <!-- Poem 8: Tears of the Forgotten -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">💔 Tears of the Forgotten</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem8" class="mt-2">
+        I wrote your name on the river’s skin,<br />
+        It vanished soft, as sins begin.<br /><br />
+        Your laughter lingers, cruel and kind,<br />
+        A mirror cracked within my mind.<br /><br />
+        My heart’s cathedral burns with shame,<br />
+        Each prayer I whisper bears your name.<br /><br />
+        Loneliness wears your voice tonight,<br />
+        In every silence, I lose the light.<br /><br />
+        The world moves on, I stand alone,<br />
+        A kingdom of dust, a heart of stone.<br /><br />
+        The wind recites our final song,<br />
+        Where love was right—but fate was wrong.<br /><br />
+        My tears have learned the art of flight,<br />
+        They fall like stars into endless night.<br /><br />
+        O grief, my crown, my faithful friend,<br />
+        You’ll walk beside me till the end.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem8-btn" onclick="toggleReadMore('poem8')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+
+    <!-- Poem 9: Elegy of the Broken Flame -->
+    <div class="card p-4 rounded-lg shadow-md mb-4">
+      <h3 class="text-xl font-semibold">🔥 Elegy of the Broken Flame</h3>
+      <p class="italic text-gray-600 mb-2">By Hassan Jatoi</p>
+      <p id="poem9" class="mt-2">
+        Once we were fire, now only smoke,<br />
+        Love’s fragile glass forever broke.<br /><br />
+        You left your scent on my weary soul,<br />
+        A wound too deep to make me whole.<br /><br />
+        My dreams have turned to haunted seas,<br />
+        Where echoes whisper your decrees.<br /><br />
+        The candles mourn with shivering breath,<br />
+        Their light consumed by living death.<br /><br />
+        I speak to the moon, she turns away,<br />
+        She too has known a love’s decay.<br /><br />
+        Each heartbeat begs for your return,<br />
+        Yet finds the silence—cold, stern.<br /><br />
+        If heaven could weep, it would tonight,<br />
+        For love that died without its right.<br /><br />
+        O memory, my sweetest chain,<br />
+        Bind me forever to my pain.
+      </p>
+      <div class="mt-2 space-x-2">
+        <button onclick="toggleLike(this)" class="bg-yellow-500 text-white px-3 py-1 rounded">❤️ Like</button>
+        <button id="poem9-btn" onclick="toggleReadMore('poem9')" class="bg-blue-500 text-white px-3 py-1 rounded">🔽 Read More</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="px-6 py-8 bg-gray-100">
+    <h2 class="text-2xl font-bold mb-4">👤 About Me</h2>
+    <p class="text-gray-700">
+      I am Hassan Jatoi — a poet, storyteller, and dreamer. My words are born from silence, sorrow, and stars. I write to remember, to heal, and to haunt. Welcome to my world.
+    </p>
+  </section>
+
+  <!-- Hire Me Section -->
+  <section id="hire" class="px-6 py-8">
+    <h2 class="text-2xl font-bold mb-4">💼 Hire Me</h2>
+    <p class="text-gray-700 mb-2">Need a custom poem, story, or creative writing project? I'm available for freelance work.</p>
+    <a href="https://www.fiverr.com/s/2Kg2X7X" target="_blank" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Hire Me on Fiverr</a>
+  </section>
+
+  <!-- Share My Website Section -->
+  <section class="px-6 py-8 bg-gray-100">
+    <h2 class="text-2xl font-bold mb-4">🔗 Share My Website</h2>
+    <div class="flex space-x-4">
+      <a href="https://www.facebook.com/hassanjatoiofficial" target="_blank" class="text-blue-600 text-xl"><i class="fab fa-facebook"></i></a>
+    <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500">
+    &copy; 2025 Hassan Jatoi. All rights reserved.
+  </footer>
 </body>
-</html>
+</html>    <a href="https://www.linkedin.com/in/hassanjatoiofficial" target="_blank" class="text-blue-700 text-xl"><i
+                                                                                                                

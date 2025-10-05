@@ -37,7 +37,7 @@ function changeCardBackgrounds() {
 setInterval(() => {
   changeHeroBackground();
   changeCardBackgrounds();
-}, 2000);
+}, 3000); // Slightly slower for smoother transitions
 
 // Like button toggle
 function toggleLike(btn) {
